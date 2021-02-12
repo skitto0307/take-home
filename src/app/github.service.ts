@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import {Observable} from 'rxjs';
 import { map } from 'rxjs/operators'
-import { commit } from './models';
+import { Commit } from './models';
 
 
 @Injectable({providedIn: 'root'})
@@ -14,11 +14,11 @@ export class GitHubService {
 
     constructor(private http:HttpClient) { }
 
-    getCommitHistory(): Observable<commit[]>{
+    getCommitHistory(): Observable<Commit[]>{
         return this.http.get(`${this._apiUrl}/commits`)
         .pipe(map((results:any)=> {
             
-            let commits: commit[] = [];
+            let commits: Commit[] = [];
 
             // iterate  over results and format commit information
             results.forEach((result:any)=> {

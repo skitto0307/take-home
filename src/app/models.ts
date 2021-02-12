@@ -1,4 +1,4 @@
-export interface commit{
+export interface Commit{
     author:string;
     date: string;
     message:string;
